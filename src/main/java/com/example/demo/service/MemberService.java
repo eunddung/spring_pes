@@ -26,4 +26,8 @@ public class MemberService {
 		return memberRepository.getMember(id);
 	}
 
+	public int doDuplicateId(String loginId) {
+		return memberRepository.DuplicateId(loginId);
+	}
+
 }
