@@ -24,7 +24,7 @@ public class MemberService {
 		}
 
 		existsMember = getMemberByNameAndEmail(name, email);
-		
+
 		if (existsMember != null) {
 			return -2;
 		}
@@ -39,7 +39,7 @@ public class MemberService {
 		return memberRepository.getMemberByNameAndEmail(name, email);
 	}
 
-	private Member getMemberByLoginId(String loginId) {
+	public Member getMemberByLoginId(String loginId) {
 		return memberRepository.getMemberByLoginId(loginId);
 	}
 
