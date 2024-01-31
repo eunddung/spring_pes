@@ -18,7 +18,7 @@ public interface MemberRepository {
 	@Select("""
 			SELECT *
 			FROM `member`
-			WHERE name = #{name} 
+			WHERE name = #{name}
 			AND email = #{email}
 			""")
 	public Member getMemberByNameAndEmail(String name, String email);
@@ -42,5 +42,8 @@ public interface MemberRepository {
 
 	@Select("SELECT * FROM `member` WHERE id = #{id}")
 	public Member getMember(int id);
+
+	@Select("SELECT * FROM `member` WHERE loginId= #{loginId}")
+	public String checklogin(String loginId);
 
 }
