@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.ArticleService;
@@ -29,26 +28,18 @@ public class UsrArticleController {
 	// 액션 메서드
 
 	@RequestMapping("/usr/article/detail")
-	@ResponseBody
 	public String showDetail(Model model, int id) {
-
 		Article article = articleService.getArticle(id);
+
+		/*
+		 * if (article == null) { return ResultData.from("F-1",
+		 * Ut.f("%d번 게시물은 존재하지 않습니다", id)); }
+		 */
 
 		model.addAttribute("article", article);
 
-		return "usr/article/list";
-
+		return "usr/article/detail";
 	}
-
-	/*
-	 * public ResultData<Article> getArticleAction(int id) { Article article =
-	 * articleService.getArticle(id);
-	 * 
-	 * if (article == null) { return ResultData.from("F-1",
-	 * Ut.f("%d번 게시물은 존재하지 않습니다", id)); }
-	 * 
-	 * return ResultData.from("S-1", Ut.f("%d번 게시물입니다.", id), "article", article); }
-	 */
 
 	@RequestMapping("/usr/article/list")
 	public String showList(Model model) {
